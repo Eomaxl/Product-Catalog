@@ -90,9 +90,7 @@ public class Product {
 		return discontinued;
 	}
 
-	public void setDiscontinued(boolean discontinued) {
-		this.discontinued = discontinued;
-	}
+	
 	
 
 	
