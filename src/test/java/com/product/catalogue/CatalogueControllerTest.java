@@ -61,7 +61,7 @@ public class CatalogueControllerTest {
 		p1.setQuantityPerUnit(1);
 		p1.setUnitPrice(100);
 		p1.setUnitsInStock(100);
-		p1.setDiscontinued(false);
+		
 		
 		productList = new ArrayList<>();
 		productList.add(p1);
