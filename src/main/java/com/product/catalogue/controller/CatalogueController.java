@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/v1/")
 public class CatalogueController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CatalogueController.class);
@@ -40,9 +39,6 @@ public class CatalogueController {
 		return productCatalogueService.addProduct(product);
 	}
 	
-	@DeleteMapping("/product/{id}")
-	public String deleteProduct(@PathVariable("id") int id){
-		return productCatalogueService.deleteProduct(id);
-	}
+	
 
 }
