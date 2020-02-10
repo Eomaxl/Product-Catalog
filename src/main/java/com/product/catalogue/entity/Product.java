@@ -9,14 +9,13 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	private String name;
-	private String description;
-	private String supplierId;
+	private String productName;
+	private String productDesc;
+	private String productSeller;
 	private String productType;
-	private int quantityPerUnit;
-	private double unitPrice;
-	private long unitsInStock;
-	private boolean discontinued;
+	private int productPerUnit;
+	private double productPrice;
+	private long productStock;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub
@@ -31,27 +30,27 @@ public class Product {
 	}
 
 	public String getName() {
-		return name;
+		return productName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.productName = name;
 	}
 
 	public String getDescription() {
-		return description;
+		return productDesc;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.productDesc = description;
 	}
 
 	public String getSupplierId() {
-		return supplierId;
+		return productSeller;
 	}
 
 	public void setSupplierId(String supplierId) {
-		this.supplierId = supplierId;
+		this.productSeller = supplierId;
 	}
 
 	public String getProductType() {
@@ -63,31 +62,84 @@ public class Product {
 	}
 
 	public int getQuantityPerUnit() {
-		return quantityPerUnit;
+		return productPerUnit;
 	}
 
 	public void setQuantityPerUnit(int quantityPerUnit) {
-		this.quantityPerUnit = quantityPerUnit;
+		this.productPerUnit = quantityPerUnit;
 	}
 
 	public double getUnitPrice() {
-		return unitPrice;
+		return productPrice;
 	}
 
 	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
+		this.productPrice = unitPrice;
 	}
 
 	public long getUnitsInStock() {
-		return unitsInStock;
+		return productStock;
 	}
 
 	public void setUnitsInStock(long unitsInStock) {
-		this.unitsInStock = unitsInStock;
+		this.productStock = unitsInStock;
 	}
 
-	public boolean isDiscontinued() {
-		return discontinued;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((productDesc == null) ? 0 : productDesc.hashCode());
+		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
+		result = prime * result + productPerUnit;
+		long temp;
+		temp = Double.doubleToLongBits(productPrice);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((productSeller == null) ? 0 : productSeller.hashCode());
+		result = prime * result + (int) (productStock ^ (productStock >>> 32));
+		result = prime * result + ((productType == null) ? 0 : productType.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (id != other.id)
+			return false;
+		if (productDesc == null) {
+			if (other.productDesc != null)
+				return false;
+		} else if (!productDesc.equals(other.productDesc))
+			return false;
+		if (productName == null) {
+			if (other.productName != null)
+				return false;
+		} else if (!productName.equals(other.productName))
+			return false;
+		if (productPerUnit != other.productPerUnit)
+			return false;
+		if (Double.doubleToLongBits(productPrice) != Double.doubleToLongBits(other.productPrice))
+			return false;
+		if (productSeller == null) {
+			if (other.productSeller != null)
+				return false;
+		} else if (!productSeller.equals(other.productSeller))
+			return false;
+		if (productStock != other.productStock)
+			return false;
+		if (productType == null) {
+			if (other.productType != null)
+				return false;
+		} else if (!productType.equals(other.productType))
+			return false;
+		return true;
 	}
 
 	
